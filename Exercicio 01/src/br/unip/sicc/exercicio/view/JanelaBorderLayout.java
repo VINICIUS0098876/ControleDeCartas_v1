@@ -42,11 +42,8 @@ public class JanelaBorderLayout extends JFrame {
 	
 	
 	private JPanel montaPainelCadastro() {
-		JPanel painelCadastro = new JPanel();
-		
-		painelCadastro.setBackground(Color.BLACK);
-		
-		return painelCadastro;
+	
+		return new PainelCadastro();
 	}
 	
 	
