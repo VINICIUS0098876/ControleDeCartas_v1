@@ -33,11 +33,9 @@ public class JanelaBorderLayout extends JFrame {
 	}
 	
 	private JPanel montaPainelBusca() {
-		JPanel painelBusca = new JPanel();
+
 		
-		painelBusca.setBackground(Color.RED);
-		
-		return painelBusca;
+		return new PainelBusca();
 	}
 	
 	
