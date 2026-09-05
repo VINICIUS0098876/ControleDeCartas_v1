@@ -21,7 +21,7 @@ public class PainelCadastro extends JPanel {
 	private JPanel painelCadastro;
 	private JPanel painelBotao;
 	
-	private PainelCadastro() {
+	 PainelCadastro() {
 		this.setLayout(new BorderLayout());
 		
 		painelCadastro = montaPainelCadastro();
