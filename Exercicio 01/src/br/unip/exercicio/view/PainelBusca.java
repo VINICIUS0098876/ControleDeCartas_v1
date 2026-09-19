@@ -3,8 +3,10 @@ package br.unip.exercicio.view;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.event.KeyEvent;
+import java.net.URL;
 import java.util.List;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JLabel;
@@ -12,6 +14,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
+import javax.swing.Icon;
 
 import br.unip.exercicio.dao.ArtefatoList;
 import br.unip.exercicio.model.Artefato;
@@ -24,6 +27,7 @@ public class PainelBusca extends JPanel {
 	private JScrollPane scroll;
 	private ArtefatoTableModel artefato;
 	private ArtefatoList artefatoList;
+	private static PainelBusca instance;
 	
 	private JPanel painelFiltro;
 	private JPanel painelTabela;
@@ -42,6 +46,16 @@ public class PainelBusca extends JPanel {
 		this.add(painelBotoes, BorderLayout.SOUTH);
 
 		
+	}
+	
+	public static PainelBusca getInstance() {
+		if(instance == null) {
+			instance = new PainelBusca();
+		}else {
+			System.out.println("Painel Busca já cadastrado!");
+		}
+		
+		return instance;
 	}
 	
 	private JPanel montaPainelFiltro() {
@@ -92,6 +106,13 @@ public class PainelBusca extends JPanel {
 		JPanel painelBotoes = new JPanel();
 		
 		painelBotoes.setLayout(new FlowLayout(FlowLayout.RIGHT));
+		
+		URL	urlCheck = PainelBusca.class.getResource("/br/unip/exercicio/resource/check.png");
+		Icon iconeCheck = new ImageIcon(urlCheck);
+		
+		URL urlDelete = PainelBusca.class.getResource("/br/unip/exercicio/resource/delete.png");
+		Icon iconeDelete = new ImageIcon(urlDelete);
+
 
 
 		btnSelecionar = new JButton("Selecionar");

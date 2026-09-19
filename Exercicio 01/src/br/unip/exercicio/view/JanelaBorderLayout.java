@@ -2,18 +2,21 @@ package br.unip.exercicio.view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
-public class JanelaBorderLayout extends JFrame {
+public class JanelaBorderLayout extends JFrame implements WindowListener {
 	
 	private JPanel painelCadastro;
 	private JPanel painelBusca;
 	
 	// Aqui estou criando um construtor para a criação da janela;
 	private JanelaBorderLayout() {
+		addWindowListener(this);
 		
 		painelCadastro = montaPainelCadastro();
 		painelBusca = montaPainelBusca();
@@ -35,14 +38,16 @@ public class JanelaBorderLayout extends JFrame {
 	private JPanel montaPainelBusca() {
 
 		
-		return new PainelBusca();
+		return PainelBusca.getInstance();
 	}
 	
 	
 	private JPanel montaPainelCadastro() {
 	
-		return new PainelCadastro();
+		return PainelCadastro.getInstance();
 	}
+	
+
 	
 	
 	
@@ -50,6 +55,50 @@ public class JanelaBorderLayout extends JFrame {
 		SwingUtilities.invokeLater(() -> {
 			new JanelaBorderLayout().setVisible(true);
 		});
+	}
+	
+
+
+	@Override
+	public void windowOpened(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+	System.out.println("Fechou!");
+		
+	}
+
+	@Override
+	public void windowClosed(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+		System.out.println("Minimizou!");
+		
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 	
