@@ -6,6 +6,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
 import javax.swing.JFrame;
+import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
@@ -47,9 +48,6 @@ public class JanelaBorderLayout extends JFrame implements WindowListener {
 		return PainelCadastro.getInstance();
 	}
 	
-
-	
-	
 	
 	public static void main(String[] args) {
 		SwingUtilities.invokeLater(() -> {
@@ -57,8 +55,7 @@ public class JanelaBorderLayout extends JFrame implements WindowListener {
 		});
 	}
 	
-
-
+	
 	@Override
 	public void windowOpened(WindowEvent e) {
 		// TODO Auto-generated method stub

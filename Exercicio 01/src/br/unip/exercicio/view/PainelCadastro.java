@@ -6,6 +6,7 @@
 	import java.awt.event.ActionEvent;
 	import java.awt.event.ActionListener;
 	import java.awt.event.KeyEvent;
+	import javax.swing.SwingUtilities;
 	
 	import javax.swing.JButton;
 	import javax.swing.JLabel;
@@ -45,12 +46,37 @@
 			 return instance;
 		 }
 		 
+		 private class SimulaDemoraAoSalvar implements Runnable{
+			 @Override
+			 public void run() {
+				 try {
+					 System.out.println("Salvando dados no banco...");
+					 Thread.sleep(10000);
+					 System.out.println("Salvamento concluido");
+				 }catch(InterruptedException e) {
+					 e.printStackTrace();
+				 }finally {
+					 SwingUtilities.invokeLater(new Runnable() {
+						 @Override
+						 public void run() {
+							 btnSalvar.setEnabled(true);
+						 }
+					 });
+				 }
+			 }
+		 }
+		 
 		 private class Salvar implements ActionListener{
 			 @Override
 			 public void actionPerformed(ActionEvent e) {
-				 System.out.println("Simulando Salvar");
+				 btnSalvar.setEnabled(false);
+				 
+				 Thread threadDemorada = new Thread(new SimulaDemoraAoSalvar());
+				 threadDemorada.start();
 			 }
 		 }
+		 
+		 
 		
 		
 		private JPanel montaPainelCadastro() {
@@ -81,6 +107,9 @@
 			
 			btnSalvar = new JButton("Salvar");
 			btnSalvar.addActionListener(new Salvar());
+			
+			
+			
 			btnCancelar = new JButton("Cancelar");
 			btnCancelar.addActionListener(new ActionListener() {
 				@Override
@@ -95,4 +124,11 @@
 			
 			return painelBotao;
 		}
+		
+		
+		
+		
 	}
+
+	
+	
