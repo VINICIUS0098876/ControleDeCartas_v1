@@ -1,3 +1,4 @@
+
 package br.unip.exercicio.view;
 
 import java.awt.BorderLayout;
@@ -18,6 +19,7 @@ import javax.swing.Icon;
 
 import br.unip.exercicio.dao.ArtefatoList;
 import br.unip.exercicio.model.Artefato;
+import br.unip.exercicio.model.GerenciadorDeArtefatos;
 
 public class PainelBusca extends JPanel {
 	private JLabel lblFiltro;
@@ -25,7 +27,7 @@ public class PainelBusca extends JPanel {
 	private JButton btnFiltro, btnSelecionar, btnExcluir;
 	private JTable tabela;
 	private JScrollPane scroll;
-	private ArtefatoTableModel artefato;
+	private ArtefatoTableModel artefatoModel;
 	private ArtefatoList artefatoList;
 	private static PainelBusca instance;
 	
@@ -33,9 +35,11 @@ public class PainelBusca extends JPanel {
 	private JPanel painelTabela;
 	private JPanel painelBotoes;
 	
+	private GerenciadorDeArtefatos gerenciador;
+	
 	PainelBusca(){
 		this.setLayout(new BorderLayout());
-		
+		gerenciador = GerenciadorDeArtefatos.getInstance();
 		
 		painelFiltro = montaPainelFiltro();
 		painelTabela = montaPainelTabela();
@@ -77,13 +81,13 @@ public class PainelBusca extends JPanel {
 		JPanel painelTabela = new JPanel();
 		try {
 			// Aqui estamos chamando aquela lista com todos os artefatos cadastrados manualmente.
-			List<Artefato> artefatoList = new ArtefatoList().getTodos();
+			List<Artefato> artefatos = gerenciador.getTodos();
 			
 			// Aqui estamos passando a lista para que a tabela consiga entender essa lista e guardamos isso no atributo da classe(this.artefato) para que conseguimos atualizar e excluir
-			this.artefato = new ArtefatoTableModel(artefatoList);
+			this.artefatoModel = new ArtefatoTableModel(artefatos);
 			
 			// Aqui passamos para a tabela todos os artefatos para ela conseguir desenhar no painel
-			tabela = new JTable(this.artefato);
+			tabela = new JTable(this.artefatoModel);
 			
 		}catch(Exception e) {
 			

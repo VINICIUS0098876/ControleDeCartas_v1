@@ -18,7 +18,7 @@ public class ArtefatoJdbc implements ArtefatoDao{
 	
 	private static final String SQL_UPDATE = "UPDATE TB_ARTEFATO SET NOME = ?, CATEGORIA = ? , FORCA = ? WHERE ID = ?;";
 	
-	private static final String SQL_ALL = "SELECT ID, NOME, CATEGORIA, FORCA FROM TB_ARTEFATO;";
+	private static final String SQL_ALL = "SELECT ID, NOME, CATEGORIA, FORCA FROM tb_artefato;";
 	
 	private static final String SQL_SELECT_BY_ID = "SELECT ID, NOME, CATEGORIA, FORCA FROM TB_ARTEFATO WHERE ID = ?;";
 	

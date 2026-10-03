@@ -20,11 +20,11 @@ public class ArtefatoList {
 	// A lista de artefatos é instanciado nesse construtor com alguns itens ja criados dentro dele
 		artefatos = new ArrayList<>();
 	// Aqui vamos adicionar alguns itens dentro desse ArrayList(Lista de artefatos)
-		artefatos.add(new Artefato(contador++, "Espada Magica", Categoria.Ataque, 5));
-		artefatos.add(new Artefato(contador++, "Escudo de Madeira", Categoria.Defesa, 6));
-		artefatos.add(new Artefato(contador++, "Espada Justiceira", Categoria.Ataque, 5));
-		artefatos.add(new Artefato(contador++, "Barril", Categoria.Defesa, 5));
-		artefatos.add(new Artefato(contador++, "Veneno", Categoria.Pocao, 5));
+		artefatos.add(new Artefato(contador++, "Espada Magica", Categoria.ATAQUE, 5));
+		artefatos.add(new Artefato(contador++, "Escudo de Madeira", Categoria.DEFESA, 6));
+		artefatos.add(new Artefato(contador++, "Espada Justiceira", Categoria.ATAQUE, 5));
+		artefatos.add(new Artefato(contador++, "Barril", Categoria.DEFESA, 5));
+		artefatos.add(new Artefato(contador++, "Veneno", Categoria.POCAO, 5));
 
 	}
 	
